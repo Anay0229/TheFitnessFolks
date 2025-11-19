@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Fitness Folks — Contact</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+  <!-- Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#F28A18",
+            navy: "#0A0A0F",
+            cream: "#F7EED9",
+            "dark-navy": "#0A0A0F",
+          },
+          fontFamily: {
+            heading: ["Montserrat", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            xl: "1rem",
+            "2xl": "1.5rem",
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: #ffffff;
+      font-family: Inter, sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Soft cream box */
+    .soft-box {
+      background: rgba(247, 238, 217, 0.60);
+      border: 1px solid rgba(247, 238, 217, 0.60);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      transition: transform .4s ease, box-shadow .4s ease;
+    }
+
+    /* Hover-lift */
+    .hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
+    }
+
+    /* Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all .8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hero highlight animation (same as About Page) */
+    .highlight {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .highlight span {
+      position: relative;
+      z-index: 2;
+      animation: textReveal 1.6s ease-out forwards;
+      color: transparent;
+    }
+
+    .highlight::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: rgba(242, 138, 24, 0.92);
+      animation: highlightSlide 1.6s ease-out forwards;
+      z-index: 1;
+    }
+
+    @keyframes highlightSlide {
+      0% {
+        width: 0%;
+      }
+
+      45% {
+        width: 100%;
+      }
+
+      100% {
+        left: 100%;
+        width: 0;
+      }
+    }
+
+    @keyframes textReveal {
+      0% {
+        color: transparent;
+      }
+
+      50% {
+        color: white;
+      }
+
+      100% {
+        color: white;
+      }
+    }
+
+    /* Mobile menu motion */
+    .mobile-menu {
+      transition: all .3s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+
+    .mobile-menu.active {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    .menu-btn span {
+      transition: transform .3s ease, opacity .3s ease;
+    }
+
+    .menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+  </style>
+</head>
+
+<body class="text-navy">
+
+  <!-- Updated Header -->
+  <header id="navbar"
+    class="w-full bg-dark-navy/95 dark:bg-dark-navy/95 text-white fixed top-0 left-0 z-50 transition-all duration-300 border-b-4 border-primary shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo and Brand Name -->
+        <div class="flex items-center gap-4 text-white">
+          <div class="w-12 h-12">
+            <img src="Icons/Logo.png" alt="The Fitness Folks Logo" class="w-full h-full object-contain">
+          </div>
+          <h2 class="text-white text-xl font-heading font-bold tracking-wide uppercase">The Fitness Folks</h2>
+        </div>
+        <!-- Navigation Links (Desktop) -->
+        <nav class="hidden md:flex items-center space-x-8 header-nav">
+          <a class="text-white/80 hover:text-primary transition-colors duration-300 font-medium text-base relative group"
+            href="index.html">
+            Home
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a class="text-white/80 hover:text-primary transition-colors duration-300 font-medium text-base relative group"
+            href="about.html">
+            About Us
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a class="text-white/80 hover:text-primary transition-colors duration-300 font-medium text-base relative group"
+            href="services.html">
+            Our Services
+            <span
+              class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
+          </a>
+          <a class="text-primary hover:text-primary transition-colors duration-300 font-medium text-base relative group"
+            href="contact.html">
+            Contact
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
+          </a>
+          
+        </nav>
+        <!-- CTA Button (Desktop) -->
+        <div class="hidden md:block">
+          <a href="contact.html"
+            class="bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
+            Get Started
+          </a>
+        </div>
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden">
+          <button id="menuBtn" class="menu-btn text-white flex flex-col gap-1.5 w-8 h-8 justify-center">
+            <span class="w-full h-0.5 bg-white block"></span>
+            <span class="w-full h-0.5 bg-white block"></span>
+            <span class="w-full h-0.5 bg-white block"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <nav id="mobileMenu" class="mobile-menu md:hidden bg-dark-navy border-b border-primary">
+      <div class="container mx-auto px-4 py-5 flex flex-col gap-3">
+        <a href="index.html"
+          class="text-gray-300 hover:text-primary font-heading font-medium text-base py-2 border-b border-navy/30 hover:border-primary transition-colors">Home</a>
+        <a href="about.html"
+          class="text-gray-300 hover:text-primary font-heading font-medium text-base py-2 border-b border-navy/30 hover:border-primary transition-colors">About
+          Us</a>
+        <a href="services.html"
+          class="text-gray-300 hover:text-primary font-heading font-medium text-base py-2 border-b border-navy/30 hover:border-primary transition-colors">Our
+          Services</a>
+        <a href="contact.html"
+          class="text-primary font-bold font-heading text-base py-2 border-b border-primary">Contact</a>
+        
+      </div>
+    </nav>
+  </header>
+
+  <!-- Add padding-top to body content to account for fixed header -->
+  <div class="pt-20">
+    <!-- HERO -->
+    <section class="relative h-[350px] md:h-[420px] flex items-center justify-center bg-cover bg-center"
+      style='background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.5)),
+    url("https://plus.unsplash.com/premium_photo-1682309572625-791e25352998?q=80&w=1212&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");'>
+      <h1 class="highlight text-white text-4xl md:text-6xl font-heading font-bold">
+        <span>Contact Us</span>
+      </h1>
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <section class="py-20">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 px-4 sm:px-6 lg:px-8">
+
+        <!-- FORM -->
+        <div class="lg:col-span-3 soft-box rounded-2xl p-10 reveal">
+          <h2 class="text-3xl font-heading font-bold mb-4">Get in Touch</h2>
+          <p class="text-navy/70 mb-8">We'll respond within 24 hours.</p>
+
+          <form id="contact-form" action="https://formspree.io/f/manabera" method="POST" class="space-y-6">
+
+
+            <label class="flex flex-col">
+              <span class="font-semibold text-sm mb-1">Full Name</span>
+              <input id="fullName" name="fullName" type="text" required
+                class="border border-navy/10 rounded-xl p-3 bg-white" />
+            </label>
+
+            <label class="flex flex-col">
+              <span class="font-semibold text-sm mb-1">Email</span>
+              <input id="email" name="email" type="email" required
+                class="border border-navy/10 rounded-xl p-3 bg-white" />
+            </label>
+
+            <label class="flex flex-col">
+              <span class="font-semibold text-sm mb-1">Phone</span>
+              <input id="phone" name="phone" type="tel" class="border border-navy/10 rounded-xl p-3 bg-white" />
+            </label>
+
+            <label class="flex flex-col">
+              <span class="font-semibold text-sm mb-1">Message</span>
+              <textarea id="message" name="message" rows="5" required
+                class="border border-navy/10 rounded-xl p-3 bg-white"></textarea>
+            </label>
+
+            <button id="submit" name="submit" type="submit"
+              class="bg-primary text-white font-bold px-8 py-3 rounded-xl shadow hover:scale-105 transition">
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+        <!-- CONTACT INFO BOX -->
+        <div class="lg:col-span-2 soft-box rounded-2xl p-10 reveal">
+
+          <h3 class="text-3xl font-heading font-bold mb-6">Contact Information</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+
+            <!-- Email -->
+            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+              <div class="flex justify-center mb-3">
+                <span class="material-symbols-outlined text-primary text-4xl">mail</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg">Email</h4>
+              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
+              <p class="text-navy/70 text-sm">Email us</p>
+            </div>
+
+            <!-- Phone -->
+            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+              <div class="flex justify-center mb-3">
+                <span class="material-symbols-outlined text-primary text-4xl">call</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg">Phone</h4>
+              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
+              <p class="text-navy/70 text-sm">(+91) 977-7064</p>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+              <div class="flex justify-center mb-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-10 h-10">
+              </div>
+              <h4 class="font-heading font-semibold text-lg">WhatsApp</h4>
+              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
+              <p class="text-navy/70 text-sm">(917) 977-7064</p>
+            </div>
+
+            <!-- Address -->
+            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+              <div class="flex justify-center mb-3">
+                <span class="material-symbols-outlined text-primary text-4xl">location_on</span>
+              </div>
+              <h4 class="font-heading font-semibold text-lg">Address</h4>
+              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
+              <p class="text-navy/70 text-sm">
+                Indore Bharakuya,<br>Bholaram
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Buttons -->
+          <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 reveal">
+
+            <a href="mailto:thefitnessfolks@gmail.com"
+              class="flex items-center justify-center gap-3 bg-navy text-white font-semibold py-3 rounded-xl shadow hover:bg-navy/90 transition-all hover-lift">
+              <span class="material-symbols-outlined text-white">mail</span>
+              Email Us
+            </a>
+
+            <a href="tel:+919179777064"
+              class="flex items-center justify-center gap-3 bg-navy text-white font-semibold py-3 rounded-xl shadow hover:bg-navy/90 transition-all hover-lift">
+              <span class="material-symbols-outlined text-white">call</span>
+              Call Us
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy text-white py-12 border-t border-gray-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 text-primary">
+                <img src="Icons/Logo.png" class="w-full h-full" alt="Logo" />
+              </div>
+              <span class="text-2xl font-bold font-heading tracking-tight">The Fitness Folks</span>
+            </div>
+            <p class="text-gray-400 text-sm max-w-sm">Your journey to a healthier, stronger you starts here.
+              Personalized fitness for every body.</p>
+          </div>
+          <div>
+            <h4 class="text-primary font-bold font-heading tracking-wider text-sm uppercase mb-4">Quick Links
+            </h4>
+            <nav class="flex flex-col gap-2">
+              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="index.html">Home</a>
+              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="services.html">Services</a>
+              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="about.html">About
+                Us</a>
+              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="contact.html">Contact</a>
+              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="gallery.html">Gallery</a>
+            </nav>
+          </div>
+          <div>
+            <h4 class="text-primary font-bold font-heading tracking-wider text-sm uppercase mb-4">Follow Us</h4>
+            <div class="flex items-center gap-4">
+              <a aria-label="Instagram" class="text-gray-300 hover:text-white transition-colors" href="#"><svg
+                  class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.74 0 8.333.011 7.053.069 2.59.248.247 2.59.069 7.053.011 8.333 0 8.74 0 12s.011 3.667.069 4.947c.178 4.46 2.522 6.804 7.004 6.982C8.333 23.989 8.74 24 12 24s3.667-.011 4.947-.069c4.482-.178 6.826-2.522 7.004-7.004.058-1.28.069-1.677.069-4.947s-.011-3.667-.069-4.947C21.752 2.59 19.408.248 14.947.069 13.667.011 13.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z">
+                  </path>
+                </svg></a>
+              <a aria-label="Facebook" class="text-gray-300 hover:text-white transition-colors" href="#"><svg
+                  class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M22.675 0h-21.35C.59 0 0 .59 0 1.325v21.35C0 23.41.59 24 1.325 24H12.82v-9.29H9.69v-3.62h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.32 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.8.72-1.8 1.77v2.31h3.59l-.47 3.62h-3.12V24h5.74c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.4.0 22.675 0z">
+                  </path>
+                </svg></a>
+              <a aria-label="Twitter" class="text-gray-300 hover:text-white transition-colors" href="#"><svg
+                  class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.223.085 4.93 4.93 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.058 0 14.01-7.502 14.01-14.01 0-.213-.005-.426-.015-.637A10.03 10.03 0 0024 4.59z">
+                  </path>
+                </svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="mt-10 pt-8 border-t border-gray-700 text-center">
+          <p class="text-gray-500 text-sm">© 2025 The Fitness Folks. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Reveal Animation Script -->
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealOnScroll = () => {
+      const trigger = window.innerHeight * 0.88;
+
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < trigger) el.classList.add("visible");
+      });
+    };
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+
+    // Mobile menu
+    const menuBtn = document.getElementById("menuBtn");
+    const mobileMenu = document.getElementById("mobileMenu");
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      mobileMenu.classList.toggle("active");
+    });
+  </script>
+
+
+
+</body>
+
+</html>
