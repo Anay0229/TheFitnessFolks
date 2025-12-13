@@ -43,17 +43,17 @@
 
   <style>
     body {
-      background: #ffffff;
+      background: #0a0a0f;
       font-family: Inter, sans-serif;
       overflow-x: hidden;
     }
 
     /* Soft cream box */
     .soft-box {
-      background: rgba(247, 238, 217, 0.60);
-      border: 1px solid rgba(247, 238, 217, 0.60);
+      background: rgba(34, 25, 16, 0.60);
+      border: 1px solid rgba(242, 136, 24, 0.3);
       backdrop-filter: blur(4px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
       transition: transform .4s ease, box-shadow .4s ease;
     }
 
@@ -240,8 +240,8 @@
   <!-- Add padding-top to body content to account for fixed header -->
   <div class="pt-20">
     <!-- HERO -->
-    <section class="relative h-[350px] md:h-[420px] flex items-center justify-center bg-cover bg-center"
-      style='background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.5)),
+    <section class="relative h-[350px] md:h-[420px] flex items-center justify-center bg-cover bg-center bg-dark-navy"
+      style='background-image: linear-gradient(rgba(10,10,15,0.65), rgba(10,10,15,0.7)),
     url("https://plus.unsplash.com/premium_photo-1682309572625-791e25352998?q=80&w=1212&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");'>
       <h1 class="highlight text-white text-4xl md:text-6xl font-heading font-bold">
         <span>Contact Us</span>
@@ -250,38 +250,38 @@
 
 
     <!-- MAIN CONTENT -->
-    <section class="py-20">
+    <section class="py-20 bg-dark-navy">
       <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 px-4 sm:px-6 lg:px-8">
 
         <!-- FORM -->
         <div class="lg:col-span-3 soft-box rounded-2xl p-10 reveal">
-          <h2 class="text-3xl font-heading font-bold mb-4">Get in Touch</h2>
-          <p class="text-navy/70 mb-8">We'll respond within 24 hours.</p>
+          <h2 class="text-3xl font-heading font-bold mb-4 text-white">Get in Touch</h2>
+          <p class="text-white/70 mb-8">We'll respond within 24 hours.</p>
 
           <form id="contact-form" action="https://formspree.io/f/manabera" method="POST" class="space-y-6">
 
 
             <label class="flex flex-col">
-              <span class="font-semibold text-sm mb-1">Full Name</span>
+              <span class="font-semibold text-sm mb-1 text-white">Full Name</span>
               <input id="fullName" name="fullName" type="text" required
-                class="border border-navy/10 rounded-xl p-3 bg-white" />
+                class="border border-white/20 rounded-xl p-3 bg-background-dark text-white placeholder-white/50" />
             </label>
 
             <label class="flex flex-col">
-              <span class="font-semibold text-sm mb-1">Email</span>
+              <span class="font-semibold text-sm mb-1 text-white">Email</span>
               <input id="email" name="email" type="email" required
-                class="border border-navy/10 rounded-xl p-3 bg-white" />
+                class="border border-white/20 rounded-xl p-3 bg-background-dark text-white placeholder-white/50" />
             </label>
 
             <label class="flex flex-col">
-              <span class="font-semibold text-sm mb-1">Phone</span>
-              <input id="phone" name="phone" type="tel" class="border border-navy/10 rounded-xl p-3 bg-white" />
+              <span class="font-semibold text-sm mb-1 text-white">Phone</span>
+              <input id="phone" name="phone" type="tel" class="border border-white/20 rounded-xl p-3 bg-background-dark text-white placeholder-white/50" />
             </label>
 
             <label class="flex flex-col">
-              <span class="font-semibold text-sm mb-1">Message</span>
+              <span class="font-semibold text-sm mb-1 text-white">Message</span>
               <textarea id="message" name="message" rows="5" required
-                class="border border-navy/10 rounded-xl p-3 bg-white"></textarea>
+                class="border border-white/20 rounded-xl p-3 bg-background-dark text-white placeholder-white/50"></textarea>
             </label>
 
             <button id="submit" name="submit" type="submit"
@@ -296,48 +296,48 @@
         <!-- CONTACT INFO BOX -->
         <div class="lg:col-span-2 soft-box rounded-2xl p-10 reveal">
 
-          <h3 class="text-3xl font-heading font-bold mb-6">Contact Information</h3>
+          <h3 class="text-3xl font-heading font-bold mb-6 text-white">Contact Information</h3>
 
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
 
             <!-- Email -->
-            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+            <div class="rounded-xl bg-background-dark/80 border border-primary/20 p-6 text-center shadow-sm hover-lift reveal">
               <div class="flex justify-center mb-3">
                 <span class="material-symbols-outlined text-primary text-4xl">mail</span>
               </div>
-              <h4 class="font-heading font-semibold text-lg">Email</h4>
-              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
-              <p class="text-navy/70 text-sm">Email us</p>
+              <h4 class="font-heading font-semibold text-lg text-white">Email</h4>
+              <div class="h-0.5 w-10 bg-primary/60 mx-auto my-2"></div>
+              <p class="text-white/70 text-sm">Email us</p>
             </div>
 
             <!-- Phone -->
-            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+            <div class="rounded-xl bg-background-dark/80 border border-primary/20 p-6 text-center shadow-sm hover-lift reveal">
               <div class="flex justify-center mb-3">
                 <span class="material-symbols-outlined text-primary text-4xl">call</span>
               </div>
-              <h4 class="font-heading font-semibold text-lg">Phone</h4>
-              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
-              <p class="text-navy/70 text-sm">(+91) 977-7064</p>
+              <h4 class="font-heading font-semibold text-lg text-white">Phone</h4>
+              <div class="h-0.5 w-10 bg-primary/60 mx-auto my-2"></div>
+              <p class="text-white/70 text-sm">(+91) 977-7064</p>
             </div>
 
             <!-- WhatsApp -->
-            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+            <div class="rounded-xl bg-background-dark/80 border border-primary/20 p-6 text-center shadow-sm hover-lift reveal">
               <div class="flex justify-center mb-3">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-10 h-10">
               </div>
-              <h4 class="font-heading font-semibold text-lg">WhatsApp</h4>
-              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
-              <p class="text-navy/70 text-sm">(917) 977-7064</p>
+              <h4 class="font-heading font-semibold text-lg text-white">WhatsApp</h4>
+              <div class="h-0.5 w-10 bg-primary/60 mx-auto my-2"></div>
+              <p class="text-white/70 text-sm">(917) 977-7064</p>
             </div>
 
             <!-- Address -->
-            <div class="rounded-xl bg-white/60 border border-cream/60 p-6 text-center shadow-sm hover-lift reveal">
+            <div class="rounded-xl bg-background-dark/80 border border-primary/20 p-6 text-center shadow-sm hover-lift reveal">
               <div class="flex justify-center mb-3">
                 <span class="material-symbols-outlined text-primary text-4xl">location_on</span>
               </div>
-              <h4 class="font-heading font-semibold text-lg">Address</h4>
-              <div class="h-0.5 w-10 bg-primary/40 mx-auto my-2"></div>
-              <p class="text-navy/70 text-sm">
+              <h4 class="font-heading font-semibold text-lg text-white">Address</h4>
+              <div class="h-0.5 w-10 bg-primary/60 mx-auto my-2"></div>
+              <p class="text-white/70 text-sm">
                 Indore Bharakuya,<br>Bholaram
               </p>
             </div>
@@ -348,13 +348,13 @@
           <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4 reveal">
 
             <a href="mailto:thefitnessfolks@gmail.com"
-              class="flex items-center justify-center gap-3 bg-navy text-white font-semibold py-3 rounded-xl shadow hover:bg-navy/90 transition-all hover-lift">
+              class="flex items-center justify-center gap-3 bg-primary text-white font-semibold py-3 rounded-xl shadow hover:bg-primary/90 transition-all hover-lift">
               <span class="material-symbols-outlined text-white">mail</span>
               Email Us
             </a>
 
             <a href="tel:+919179777064"
-              class="flex items-center justify-center gap-3 bg-navy text-white font-semibold py-3 rounded-xl shadow hover:bg-navy/90 transition-all hover-lift">
+              class="flex items-center justify-center gap-3 bg-primary text-white font-semibold py-3 rounded-xl shadow hover:bg-primary/90 transition-all hover-lift">
               <span class="material-symbols-outlined text-white">call</span>
               Call Us
             </a>
@@ -366,7 +366,7 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-navy text-white py-12 border-t border-gray-800">
+    <footer class="bg-dark-navy text-white py-12 border-t border-white/10">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="md:col-span-2">
@@ -376,37 +376,36 @@
               </div>
               <span class="text-2xl font-bold font-heading tracking-tight">The Fitness Folks</span>
             </div>
-            <p class="text-gray-400 text-sm max-w-sm">Your journey to a healthier, stronger you starts here.
+            <p class="text-white/70 text-sm max-w-sm">Your journey to a healthier, stronger you starts here.
               Personalized fitness for every body.</p>
           </div>
           <div>
             <h4 class="text-primary font-bold font-heading tracking-wider text-sm uppercase mb-4">Quick Links
             </h4>
             <nav class="flex flex-col gap-2">
-              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="index.html">Home</a>
-              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="services.html">Services</a>
-              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="about.html">About
+              <a class="text-white/70 hover:text-white transition-colors text-sm" href="index.html">Home</a>
+              <a class="text-white/70 hover:text-white transition-colors text-sm" href="services.html">Services</a>
+              <a class="text-white/70 hover:text-white transition-colors text-sm" href="about.html">About
                 Us</a>
-              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="contact.html">Contact</a>
-              <a class="text-gray-300 hover:text-white transition-colors text-sm" href="gallery.html">Gallery</a>
+              <a class="text-white/70 hover:text-white transition-colors text-sm" href="contact.html">Contact</a>
             </nav>
           </div>
           <div>
             <h4 class="text-primary font-bold font-heading tracking-wider text-sm uppercase mb-4">Follow Us</h4>
             <div class="flex items-center gap-4">
-              <a aria-label="Instagram" class="text-gray-300 hover:text-white transition-colors" href="#"><svg
+              <a aria-label="Instagram" class="text-white/70 hover:text-white transition-colors" href="#"><svg
                   class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.74 0 8.333.011 7.053.069 2.59.248.247 2.59.069 7.053.011 8.333 0 8.74 0 12s.011 3.667.069 4.947c.178 4.46 2.522 6.804 7.004 6.982C8.333 23.989 8.74 24 12 24s3.667-.011 4.947-.069c4.482-.178 6.826-2.522 7.004-7.004.058-1.28.069-1.677.069-4.947s-.011-3.667-.069-4.947C21.752 2.59 19.408.248 14.947.069 13.667.011 13.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z">
                   </path>
                 </svg></a>
-              <a aria-label="Facebook" class="text-gray-300 hover:text-white transition-colors" href="#"><svg
+              <a aria-label="Facebook" class="text-white/70 hover:text-white transition-colors" href="#"><svg
                   class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M22.675 0h-21.35C.59 0 0 .59 0 1.325v21.35C0 23.41.59 24 1.325 24H12.82v-9.29H9.69v-3.62h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.32 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.8.72-1.8 1.77v2.31h3.59l-.47 3.62h-3.12V24h5.74c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.4.0 22.675 0z">
                   </path>
                 </svg></a>
-              <a aria-label="Twitter" class="text-gray-300 hover:text-white transition-colors" href="#"><svg
+              <a aria-label="Twitter" class="text-white/70 hover:text-white transition-colors" href="#"><svg
                   class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.223.085 4.93 4.93 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.058 0 14.01-7.502 14.01-14.01 0-.213-.005-.426-.015-.637A10.03 10.03 0 0024 4.59z">
@@ -415,8 +414,8 @@
             </div>
           </div>
         </div>
-        <div class="mt-10 pt-8 border-t border-gray-700 text-center">
-          <p class="text-gray-500 text-sm">© 2025 The Fitness Folks. All Rights Reserved.</p>
+        <div class="mt-10 pt-8 border-t border-white/10 text-center">
+          <p class="text-white/50 text-sm">© 2025 The Fitness Folks. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
