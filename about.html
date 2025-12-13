@@ -27,7 +27,7 @@
         }
 
         body {
-            background-image: url('Icons/pattern.png');
+            background-image: url('./Test/pattern3.png');
             background-size: 300px;
             background-repeat: repeat;
             background-attachment: fixed;
@@ -154,7 +154,7 @@
     </script>
 </head>
 
-<body class="bg-background-light dark:bg-background-dark text-navy dark:text-white min-h-screen flex flex-col">
+<body class="bg-black dark:bg-dark-navy text-white dark:text-white min-h-screen flex flex-col">
 
     <!-- Updated Header -->
     <header id="navbar"
@@ -193,12 +193,7 @@
                         <span
                             class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
                     </a>
-                    <a class="text-white/80 hover:text-primary transition-colors duration-300 font-medium text-base relative group"
-                        href="gallery.html">
-                        Gallery
-                        <span
-                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </a>
+
                 </nav>
                 <!-- CTA Button (Desktop) -->
                 <div class="hidden md:block">
@@ -237,18 +232,18 @@
     <!-- Add padding-top to body content to account for fixed header -->
     <div class="pt-20">
         <!-- Hero Section -->
-        <section class="relative overflow-hidden 
-           bg-white/70 dark:bg-black/60 
-           backdrop-blur-vsm 
-           py-20">
+          <section class="relative overflow-hidden 
+              bg-dark-navy/40 dark:bg-dark-navy/60 
+              backdrop-blur-vsm 
+              py-20">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h1 class="text-5xl md:text-6xl font-bold font-heading text-navy dark:text-white mb-6 leading-tight">
+                <h1 class="text-5xl md:text-6xl font-bold font-heading text-white mb-6 leading-tight">
                     <span class="highlight-animate">
                         <span>We're <span class="text-primary">The Fitness Folks</span></span>
                     </span>
                 </h1>
 
-                <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                <p class="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
                     Empowering you with personalized fitness, expert guidance, and a supportive community — wherever you
                     are
                     in the world.
@@ -262,28 +257,28 @@
             </div>
             <!-- Smooth bottom fade -->
             <div
-                class="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-b from-transparent to-white dark:to-background-dark pointer-events-none">
+            <div class="absolute bottom-0 left-0 w-full h-28 bg-gradient-to-b from-transparent to-dark-navy dark:to-dark-navy pointer-events-none">
             </div>
 
         </section>
 
         <!-- Rest of your page content remains the same -->
         <!-- Our Story -->
-        <section class=" py-16 lg:py-24 bg-white dark:bg-background-dark">
+        <section class=" py-16 lg:py-24 bg-dark-navy dark:bg-dark-navy">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl cursor-pointer">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <!-- Content -->
                     <div>
                         <div class="mb-8">
-                            <h2 class="text-4xl lg:text-5xl font-bold font-heading text-navy dark:text-white mb-4">Our
+                            <h2 class="text-4xl lg:text-5xl font-bold font-heading text-white mb-4">Our
                                 Story
                             </h2>
                             <div class="w-20 h-1 bg-primary"></div>
                         </div>
                         <div
-                            class="flex items-start gap-5 p-6 bg-[#f2d2ca] dark:bg-navy/40 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-cream/50 dark:border-navy/30">
+                            class="flex items-start gap-5 p-6 bg-background-dark rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-primary/20">
                             <img class="w-10" src="Icons/muscle.gif" alt="">
-                            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                            <p class="text-lg leading-relaxed text-white/70 mb-6">
                                 The Fitness Folks was born from a shared passion to make wellness inclusive, effective,
                                 and
                                 joyful. Founded by certified trainers with decades of experience, we blend
@@ -297,7 +292,7 @@
 
                     <!-- Image -->
                     <div>
-                        <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        <img src="../fitnessfolks/Group Photo.jpg"
                             alt="Our Story"
                             class="rounded-2xl shadow-2xl w-full h-96 object-cover transition duration-300 ease-out hover:scale-[1.03] hover:border-primary hover:shadow-lg cursor-pointer">
                     </div>
@@ -307,7 +302,7 @@
         </section>
 
         <!-- Mission -->
-        <section class="py-16 lg:py-24 bg-white dark:bg-background-dark">
+        <section class="py-16 lg:py-24 bg-dark-navy dark:bg-dark-navy">
 
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -321,14 +316,14 @@
                     <!-- Content -->
                     <div>
                         <div class="mb-8">
-                            <h2 class="text-4xl lg:text-5xl font-bold font-heading text-navy dark:text-white mb-4">Our
+                            <h2 class="text-4xl lg:text-5xl font-bold font-heading text-white mb-4">Our
                                 Mission</h2>
                             <div class="w-20 h-1 bg-primary"></div>
                         </div>
                         <div
-                            class="flex items-start gap-5 p-6 bg-[#f2d2ca] dark:bg-navy/40 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-cream/50 dark:border-navy/30">
+                            class="flex items-start gap-5 p-6 bg-background-dark rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-primary/20">
                             <img class="w-10" src="Icons/battle-rope-color.gif" alt="">
-                            <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                            <p class="text-lg leading-relaxed text-white/70">
                                 We are dedicated to helping people reconnect with their bodies and discover the
                                 transformative
                                 power of mindful movement. Our approach combines modern fitness science with holistic
@@ -342,71 +337,71 @@
         </section>
 
         <!-- Meet the Team -->
-        <section class="py-16 lg:py-24 bg-white dark:bg-background-dark">
+        <section class="py-16 lg:py-24 bg-dark-navy dark:bg-dark-navy">
             <!-- Team section content would go here -->
         </section>
 
         <!-- What Makes Us Different -->
-        <section class="py-16 lg:py-24 bg-cream/20 dark:bg-navy/10">
-            <div class="mx-auto max-w-6xl p-20 bg-white border border-gray-200/50 shadow-sm rounded-xl">
+        <section class="py-16 lg:py-24 bg-dark-navy dark:bg-dark-navy">
+            <div class="mx-auto max-w-6xl p-20 bg-background-dark border border-primary/20 shadow-sm rounded-xl">
                 <div class="text-center mb-16">
-                    <h2 class="text-4xl font-bold font-heading text-navy dark:text-white mb-4">What Sets Us Apart</h2>
+                    <h2 class="text-4xl font-bold font-heading text-white mb-4">What Sets Us Apart</h2>
                     <div class="w-24 h-1 bg-primary mx-auto"></div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div
-                        class="flex items-start gap-5 p-6 bg-white dark:bg-navy/40 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-cream/50 dark:border-navy/30">
+                        class="flex items-start gap-5 p-6 bg-background-dark/80 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-primary/20">
                         <div
-                            class="flex-shrink-0 w-14 h-14 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                            class="flex-shrink-0 w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white">
                             <img class="text-2xl p-2" src="Icons/coaching.gif" alt="">
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold font-heading text-navy dark:text-white mb-2">Personalized Plans
+                            <h4 class="text-xl font-bold font-heading text-white mb-2">Personalized Plans
                             </h4>
-                            <p class="text-gray-600 dark:text-gray-300">Custom fitness journeys crafted for your body,
+                            <p class="text-white/70">Custom fitness journeys crafted for your body,
                                 goals, and lifestyle.</p>
                         </div>
                     </div>
 
                     <div
-                        class="flex items-start gap-5 p-6 bg-white dark:bg-navy/40 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-cream/50 dark:border-navy/30">
+                        class="flex items-start gap-5 p-6 bg-background-dark/80 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-primary/20">
                         <div
-                            class="flex-shrink-0 w-14 h-14 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                            class="flex-shrink-0 w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white">
                             <img class="text-2xl p-2" src="Icons/video-conference.gif" alt="">
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold font-heading text-navy dark:text-white mb-2">Hybrid Training
+                            <h4 class="text-xl font-bold font-heading text-white mb-2">Hybrid Training
                             </h4>
-                            <p class="text-gray-600 dark:text-gray-300">Train online from anywhere or in-person at your
+                            <p class="text-white/70">Train online from anywhere or in-person at your
                                 home
                                 — your choice.</p>
                         </div>
                     </div>
 
                     <div
-                        class="flex items-start gap-5 p-6 bg-white dark:bg-navy/40 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-cream/50 dark:border-navy/30">
+                        class="flex items-start gap-5 p-6 bg-background-dark/80 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-primary/20">
                         <div
-                            class="flex-shrink-0 w-14 h-14 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                            class="flex-shrink-0 w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white">
                             <img class="text-2xl p-2" src="Icons/emerging-industries.gif" alt="">
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold font-heading text-navy dark:text-white mb-2">Global Reach</h4>
-                            <p class="text-gray-600 dark:text-gray-300">Serving clients in India, UK, USA, Australia —
+                            <h4 class="text-xl font-bold font-heading text-white mb-2">Global Reach</h4>
+                            <p class="text-white/70">Serving clients in India, UK, USA, Australia —
                                 across time zones.</p>
                         </div>
                     </div>
 
                     <div
-                        class="flex items-start gap-5 p-6 bg-white dark:bg-navy/40 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-cream/50 dark:border-navy/30">
+                        class="flex items-start gap-5 p-6 bg-background-dark/80 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 border border-primary/20">
                         <div
-                            class="flex-shrink-0 w-14 h-14 bg-primary/10 dark:bg-primary/20 rounded-full flex items-center justify-center text-primary">
+                            class="flex-shrink-0 w-14 h-14 bg-primary rounded-full flex items-center justify-center text-white">
                             <img class="text-2xl p-2" src="Icons/public-relations.gif" alt="">
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold font-heading text-navy dark:text-white mb-2">Supportive
+                            <h4 class="text-xl font-bold font-heading text-white mb-2">Supportive
                                 Community
                             </h4>
-                            <p class="text-gray-600 dark:text-gray-300">Join a motivating, inclusive tribe that
+                            <p class="text-white/70">Join a motivating, inclusive tribe that
                                 celebrates
                                 every milestone.</p>
                         </div>
@@ -416,10 +411,10 @@
         </section>
 
         <!-- CTA -->
-        <section class="py-16 bg-navy text-white">
+        <section class="py-16 bg-dark-navy text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl font-bold font-heading mb-6">Ready to Begin Your Journey?</h2>
-                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">Let's build a stronger, healthier you —
+                <h2 class="text-4xl font-bold font-heading mb-6 text-white">Ready to Begin Your Journey?</h2>
+                <p class="text-lg text-white/70 mb-8 max-w-2xl mx-auto">Let's build a stronger, healthier you —
                     together.
                 </p>
                 <a href="contact.html"
@@ -430,7 +425,7 @@
         </section>
 
         <!-- Footer -->
-        <footer class="bg-navy text-white py-12 border-t border-gray-800">
+        <footer class="bg-dark-navy text-white py-12 border-t border-white/10">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div class="md:col-span-2">
@@ -440,7 +435,7 @@
                             </div>
                             <span class="text-2xl font-bold font-heading tracking-tight">The Fitness Folks</span>
                         </div>
-                        <p class="text-gray-400 text-sm max-w-sm">Your journey to a healthier, stronger you starts here.
+                        <p class="text-white/70 text-sm max-w-sm">Your journey to a healthier, stronger you starts here.
                             Personalized fitness for every body.</p>
                     </div>
                     <div>
@@ -448,35 +443,33 @@
                             Links
                         </h4>
                         <nav class="flex flex-col gap-2">
-                            <a class="text-gray-300 hover:text-white transition-colors text-sm"
+                            <a class="text-white/70 hover:text-white transition-colors text-sm"
                                 href="index.html">Home</a>
-                            <a class="text-gray-300 hover:text-white transition-colors text-sm"
+                            <a class="text-white/70 hover:text-white transition-colors text-sm"
                                 href="services.html">Services</a>
-                            <a class="text-gray-300 hover:text-white transition-colors text-sm" href="about.html">About
+                            <a class="text-white/70 hover:text-white transition-colors text-sm" href="about.html">About
                                 Us</a>
-                            <a class="text-gray-300 hover:text-white transition-colors text-sm"
+                            <a class="text-white/70 hover:text-white transition-colors text-sm"
                                 href="contact.html">Contact</a>
-                            <a class="text-gray-300 hover:text-white transition-colors text-sm"
-                                href="gallery.html">Gallery</a>
                         </nav>
                     </div>
                     <div>
                         <h4 class="text-primary font-bold font-heading tracking-wider text-sm uppercase mb-4">Follow Us
                         </h4>
                         <div class="flex items-center gap-4">
-                            <a aria-label="Instagram" class="text-gray-300 hover:text-white transition-colors"
+                            <a aria-label="Instagram" class="text-white/70 hover:text-white transition-colors"
                                 href="#"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.74 0 8.333.011 7.053.069 2.59.248.247 2.59.069 7.053.011 8.333 0 8.74 0 12s.011 3.667.069 4.947c.178 4.46 2.522 6.804 7.004 6.982C8.333 23.989 8.74 24 12 24s3.667-.011 4.947-.069c4.482-.178 6.826-2.522 7.004-7.004.058-1.28.069-1.677.069-4.947s-.011-3.667-.069-4.947C21.752 2.59 19.408.248 14.947.069 13.667.011 13.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z">
                                     </path>
                                 </svg></a>
-                            <a aria-label="Facebook" class="text-gray-300 hover:text-white transition-colors"
+                            <a aria-label="Facebook" class="text-white/70 hover:text-white transition-colors"
                                 href="#"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M22.675 0h-21.35C.59 0 0 .59 0 1.325v21.35C0 23.41.59 24 1.325 24H12.82v-9.29H9.69v-3.62h3.13V8.41c0-3.1 1.89-4.79 4.66-4.79 1.32 0 2.46.1 2.79.14v3.24h-1.92c-1.5 0-1.8.72-1.8 1.77v2.31h3.59l-.47 3.62h-3.12V24h5.74c.73 0 1.32-.59 1.32-1.32V1.32C24 .59 23.4.0 22.675 0z">
                                     </path>
                                 </svg></a>
-                            <a aria-label="Twitter" class="text-gray-300 hover:text-white transition-colors"
+                            <a aria-label="Twitter" class="text-white/70 hover:text-white transition-colors"
                                 href="#"><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.223.085 4.93 4.93 0 004.6 3.419A9.9 9.9 0 010 17.54a13.94 13.94 0 007.548 2.212c9.058 0 14.01-7.502 14.01-14.01 0-.213-.005-.426-.015-.637A10.03 10.03 0 0024 4.59z">
@@ -485,8 +478,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-10 pt-8 border-t border-gray-700 text-center">
-                    <p class="text-gray-500 text-sm">© 2025 The Fitness Folks. All Rights Reserved.</p>
+                <div class="mt-10 pt-8 border-t border-white/10 text-center">
+                    <p class="text-white/50 text-sm">© 2025 The Fitness Folks. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
