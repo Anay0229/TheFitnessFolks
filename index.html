@@ -1,22 +1,38 @@
 <!DOCTYPE html>
-
-<html class="" lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-    <!-- Document Head: Contains metadata, stylesheets, and scripts -->
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>The Fitness Folks - Build Strength. Find Your Balance.</title>
-    <!-- Google Fonts for Montserrat, Inter, and Poppins -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Montserrat:wght@400;500;700&family=Poppins:wght@400;500;600&display=swap"
         rel="stylesheet" />
-    <!-- Material Symbols Icon Font -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f28818",
+                        "dark-navy": "#0a0a0f",
+                        "dark-overlay": "rgba(10, 10, 15, 0.85)",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "heading": ["Montserrat", "sans-serif"],
+                        "poppins": ["Poppins", "sans-serif"],
+                    },
+                },
+            },
+        }
+    </script>
+
     <style>
-        /* Base font for body */
+        /* --- Background Animation (Preserved) --- */
         @keyframes floatBackground {
             0% {
                 background-position: 0px 0px;
@@ -39,1218 +55,582 @@
             animation: floatBackground 22s ease-in-out infinite;
         }
 
-        /* Heading font for all heading tags */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* Navigation font family */
-        .header-nav {
-            font-family: 'Poppins', 'Montserrat', sans-serif;
-        }
-
-        /* Navbar scroll effect */
-        .navbar-scrolled {
-            background-color: rgba(10, 10, 15, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Animation for background float effect */
-        @keyframes floatBackground {
-            0% {
-                background-position: 0 0;
-            }
-
-            50% {
-                background-position: 150px 150px;
-            }
-
-            100% {
-                background-position: 0 0;
-            }
-        }
-
-        /* Testimonial Carousel Styles */
-        .testimonial-container {
-            display: flex;
-            gap: 2rem;
-            transition: transform 0.5s ease-in-out;
-            padding: 0 1rem;
-        }
-
-        .testimonial-card {
-            flex: 0 0 350px;
-            transition: all 0.5s ease-in-out;
-            opacity: 0.4;
-            transform: scale(0.85);
-        }
-
-        .testimonial-card.active {
-            opacity: 1;
-            transform: scale(1);
-            z-index: 10;
-        }
-
-        .testimonial-card.adjacent {
-            opacity: 0.6;
-            transform: scale(0.92);
-        }
-
-        /* Roll transition animation for videos */
-        @keyframes rollInLeft {
-            0% {
-                transform: translateX(-100%) rotate(-15deg);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateX(0) rotate(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes rollInRight {
-            0% {
-                transform: translateX(100%) rotate(15deg);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateX(0) rotate(0);
-                opacity: 1;
-            }
-        }
-
-        .roll-in-left {
-            animation: rollInLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        .roll-in-right {
-            animation: rollInRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        /* Hide scrollbar but keep functionality */
-        .testimonial-wrapper {
-            overflow-x: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .testimonial-wrapper::-webkit-scrollbar {
+        /* --- Scrollbar Hiding --- */
+        .hide-scrollbar::-webkit-scrollbar {
             display: none;
         }
 
-        /* Fade in animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        .fade-in {
+        /* --- Animations --- */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
             opacity: 0;
-            animation: fadeIn 0.6s ease-out forwards;
+            transform: translateY(20px);
         }
 
-        /* Slide in from left animation */
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .slide-in-left {
-            opacity: 0;
-            animation: slideInLeft 0.6s ease-out forwards;
-        }
-
-        /* Slide in from right animation */
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .slide-in-right {
-            opacity: 0;
-            animation: slideInRight 0.6s ease-out forwards;
-        }
-
-        /* Slide in from bottom animation */
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
+        @keyframes fadeInUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .slide-in-up {
-            opacity: 0;
-            animation: slideInUp 0.6s ease-out forwards;
+        .delay-100 {
+            animation-delay: 100ms;
         }
 
-        /* Staggered animations */
-        .animate-stagger-1 {
-            animation-delay: 0.1s;
+        .delay-200 {
+            animation-delay: 200ms;
         }
 
-        .animate-stagger-2 {
-            animation-delay: 0.2s;
-        }
-
-        .animate-stagger-3 {
-            animation-delay: 0.3s;
-        }
-
-        .animate-stagger-4 {
-            animation-delay: 0.4s;
-        }
-
-        .animate-stagger-5 {
-            animation-delay: 0.5s;
+        .delay-300 {
+            animation-delay: 300ms;
         }
     </style>
-    <!-- Tailwind Configuration Script -->
-    <script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#f28818",
-                        "background-light": "#f8f7f5",
-                        "background-dark": "#221910",
-                        "cream": "#f7eed9",
-                        "dark-navy": "#0a0a0f",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"],
-                        "heading": ["Montserrat", "sans-serif"],
-                        "poppins": ["Poppins", "sans-serif"],
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
 </head>
 
-<body class="bg-dark-navy dark:bg-dark-navy text-white dark:text-white font-display">
-    <!-- Main Page Wrapper -->
-    <div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-        <!-- Header / Navigation Bar (Sticky) -->
-        <header id="navbar"
-            class="w-full bg-dark-navy/95 dark:bg-dark-navy/95 text-white fixed top-0 left-0 z-50 transition-all duration-300">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
-                    <!-- Logo and Brand Name -->
-                    <div class="flex items-center gap-4 text-white">
-                        <div class="w-12 h-12">
-                            <img src="Icons/Logo.png" alt="The Fitness Folks Logo" class="w-full h-full object-contain">
-                        </div>
-                        <h2 class="text-white text-xl font-heading font-bold tracking-wide uppercase">The Fitness Folks
-                        </h2>
-                    </div>
-                    <!-- Navigation Links (Desktop) -->
-                    <nav class="hidden md:flex items-center space-x-8 header-nav">
-                        <a class="text-white hover:text-primary transition-colors duration-300 font-medium text-base relative group"
-                            href="index.html">
-                            Home
-                            <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                        <a class="text-white/80 hover:text-primary transition-colors duration-300 font-medium text-base relative group"
-                            href="about.html">
-                            About Us
-                            <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                        <a class="text-white/80 hover:text-primary transition-colors duration-300 font-medium text-base relative group"
-                            href="services.html">
-                            Our Services
-                            <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                        </a>
-                        <a class="text-white/80 hover:text-primary transition-colors duration-300 font-medium text-base relative group"
-                            href="contact.html">
-                            Contact
-                            <span
-                                class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
-                        </a>
+<body class="bg-dark-navy text-white font-display antialiased overflow-x-hidden">
 
-                    </nav>
-                    <!-- CTA Button (Desktop) -->
-                    <div class="hidden md:block">
-                        <button
-                            class="bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-105">
-                            Get Started
-                        </button>
+    <header id="navbar"
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-dark-navy/90 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10">
+                        <img src="Icons/Logo.png" alt="Logo" class="w-full h-full object-contain">
                     </div>
-                    <!-- Mobile Menu Button -->
-                    <div class="md:hidden">
-                        <button class="text-white focus:outline-none hover:text-primary transition-colors">
-                            <span class="material-symbols-outlined text-3xl">menu</span>
+                    <h2 class="text-xl font-heading font-bold tracking-wide uppercase text-white">The Fitness Folks</h2>
+                </div>
+
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-sm font-medium hover:text-primary transition-colors">Home</a>
+                    <a href="about.html" class="text-sm font-medium hover:text-primary transition-colors">About Us</a>
+                    <a href="services.html"
+                        class="text-sm font-medium hover:text-primary transition-colors">Services</a>
+                    <a href="contact.html" class="text-sm font-medium hover:text-primary transition-colors">Contact</a>
+                </nav>
+
+                <div class="hidden md:block">
+                    <button
+                        class="bg-primary hover:bg-orange-600 text-white font-semibold px-5 py-2 rounded-full transition-all hover:shadow-[0_0_15px_rgba(242,136,24,0.4)]">
+                        Get Started
+                    </button>
+                </div>
+
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none">
+                    <span class="material-symbols-outlined text-3xl">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-navy border-t border-white/10 absolute w-full left-0">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="index.html"
+                    class="block px-3 py-3 text-base font-medium hover:bg-white/5 hover:text-primary rounded-md">Home</a>
+                <a href="about.html"
+                    class="block px-3 py-3 text-base font-medium hover:bg-white/5 hover:text-primary rounded-md">About
+                    Us</a>
+                <a href="services.html"
+                    class="block px-3 py-3 text-base font-medium hover:bg-white/5 hover:text-primary rounded-md">Services</a>
+                <a href="contact.html"
+                    class="block px-3 py-3 text-base font-medium hover:bg-white/5 hover:text-primary rounded-md">Contact</a>
+                <div class="pt-4">
+                    <button class="w-full bg-primary text-white font-bold py-3 rounded-lg">Get Started</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-20">
+        <section
+            class="relative w-full min-h-[85vh] flex items-center bg-dark-navy bg-cover bg-center bg-no-repeat bg-fixed"
+            style="background-image: url('./fitnessfolks/Group\ photo.jpg');">
+
+            <div class="absolute inset-0 bg-gradient-to-r from-dark-navy via-dark-navy/80 to-transparent"></div>
+
+            <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                <div class="max-w-2xl fade-in-up">
+                    <h1
+                        class="text-5xl md:text-6xl lg:text-7xl font-heading font-black uppercase leading-tight tracking-tight text-white mb-6">
+                        Welcome to <span class="text-primary block">The Fitness Folks</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-200 mb-8 max-w-lg leading-relaxed">
+                        Build Strength. Find Your Balance. Your holistic journey to a healthier, stronger, and more
+                        confident you starts right here.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button
+                            class="bg-primary hover:bg-orange-600 text-white text-lg font-bold px-8 py-3 rounded-lg transition-transform hover:scale-105 shadow-lg">
+                            Join Now
                         </button>
+                        
                     </div>
                 </div>
             </div>
-        </header>
+        </section>
 
-        <!-- Main Content Area -->
-        <main class="flex-grow pt-20">
-            <!-- Hero Section (Jumbotron) -->
-            <section role="img" aria-label="Group fitness class with trainer and participants"
-                class="w-full bg-dark-navy py-16 sm:py-20 bg-cover bg-right bg-no-repeat"
-                style="background-image: url('./fitnessfolks/Group\ photo.jpg');">
-
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-                        <!-- Hero Text Content -->
-                        <div class="lg:w-1/2 text-center lg:text-left">
-                            <h1
-                                class="text-white text-4xl sm:text-5xl lg:text-6xl font-heading font-bold uppercase leading-tight tracking-wider fade-in">
-                                Welcome to The Fitness Folks</h1>
-                            <p class="mt-4 text-white/70 text-lg sm:text-xl slide-in-left animate-stagger-1">
-                                Build Strength. Find
-                                Your Balance. Your journey to a healthier, stronger you starts here.</p>
-                            <button
-                                class="mt-8 flex mx-auto lg:mx-0 min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide uppercase transition-transform hover:scale-105 slide-in-left animate-stagger-2">
-                                <span class="truncate">Join Now</span>
-                            </button>
-                        </div>
-                        <!-- Hero image moved to section background; keep right column for layout spacing -->
-                        <div class="lg:w-1/2 w-full max-w-md lg:max-w-none" aria-hidden="true"></div>
+        <section class="relative -mt-16 z-20 px-4 sm:px-6 lg:px-8 pb-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div
+                        class="group bg-dark-navy/90 backdrop-blur-lg border border-white/10 p-8 rounded-2xl hover:bg-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4">lightbulb</span>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-dark-navy">Innovation</h3>
+                        <p class="text-sm text-gray-400 group-hover:text-dark-navy/80">Cutting-edge techniques and
+                            modern equipment.</p>
+                    </div>
+                    <div
+                        class="group bg-dark-navy/90 backdrop-blur-lg border border-white/10 p-8 rounded-2xl hover:bg-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4">verified</span>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-dark-navy">High Quality</h3>
+                        <p class="text-sm text-gray-400 group-hover:text-dark-navy/80">Certified professionals and
+                            premium programs.</p>
+                    </div>
+                    <div
+                        class="group bg-dark-navy/90 backdrop-blur-lg border border-white/10 p-8 rounded-2xl hover:bg-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4">task_alt</span>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-dark-navy">Best Product</h3>
+                        <p class="text-sm text-gray-400 group-hover:text-dark-navy/80">Award-winning fitness solutions
+                            tailored for you.</p>
+                    </div>
+                    <div
+                        class="group bg-dark-navy/90 backdrop-blur-lg border border-white/10 p-8 rounded-2xl hover:bg-primary transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                        <span
+                            class="material-symbols-outlined text-4xl text-primary group-hover:text-white mb-4">settings</span>
+                        <h3 class="text-xl font-bold mb-2 text-white group-hover:text-dark-navy">Top Services</h3>
+                        <p class="text-sm text-gray-400 group-hover:text-dark-navy/80">Comprehensive wellness for total
+                            transformation.</p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Features Section (Value Proposition) -->
+        <section class="py-20 bg-dark-navy/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-
-            <!-- Value Proposition Cards (Four Column Layout) -->
-            <section class="w-full bg-dark-navy py-16 sm:py-20">
-                <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="relative flex flex-col md:flex-row items-stretch justify-center gap-0">
-
+                    <div class="grid grid-cols-2 gap-4">
                         <div
-                            class="group flex-1 bg-dark-navy/80 backdrop-blur-sm px-6 py-10 text-center text-white md:rounded-l-2xl md:border-r border-white/10 fade-in animate-stagger-1 relative
-                transition-all duration-300 ease-in-out cursor-pointer
-                hover:bg-primary hover:text-dark-navy hover:shadow-2xl hover:scale-105 hover:z-20 hover:border-transparent hover:rounded-2xl">
-                            <div
-                                class="flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                                <span
-                                    class="material-symbols-outlined text-5xl opacity-90 group-hover:opacity-100">lightbulb</span>
-                            </div>
-                            <h3 class="text-xl font-heading font-bold mb-3">Innovation</h3>
-                            <p class="text-sm opacity-80 leading-relaxed group-hover:opacity-100">Cutting-edge fitness
-                                techniques and equipment for your success.</p>
-                        </div>
-
-                        <div
-                            class="group flex-1 bg-dark-navy/80 backdrop-blur-sm px-6 py-10 text-center text-white md:border-r border-white/10 fade-in animate-stagger-2 relative
-                transition-all duration-300 ease-in-out cursor-pointer
-                hover:bg-primary hover:text-dark-navy hover:shadow-2xl hover:scale-105 hover:z-20 hover:border-transparent hover:rounded-2xl">
-                            <div
-                                class="flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                                <span
-                                    class="material-symbols-outlined text-5xl opacity-90 group-hover:opacity-100">verified</span>
-                            </div>
-                            <h3 class="text-xl font-heading font-bold mb-3">High Quality</h3>
-                            <p class="text-sm opacity-80 leading-relaxed group-hover:opacity-100">Premium training
-                                programs designed by certified professionals.</p>
-                        </div>
-
-                        <div
-                            class="group flex-1 bg-dark-navy/80 backdrop-blur-sm px-6 py-10 text-center text-white md:border-r border-white/10 fade-in animate-stagger-3 relative
-                transition-all duration-300 ease-in-out cursor-pointer
-                hover:bg-primary hover:text-dark-navy hover:shadow-2xl hover:scale-105 hover:z-20 hover:border-transparent hover:rounded-2xl">
-                            <div
-                                class="flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                                <span
-                                    class="material-symbols-outlined text-5xl opacity-90 group-hover:opacity-100">task_alt</span>
-                            </div>
-                            <h3 class="text-xl font-heading font-bold mb-3">Best Product</h3>
-                            <p class="text-sm opacity-80 leading-relaxed group-hover:opacity-100">Award-winning fitness
-                                solutions tailored to your needs.</p>
-                        </div>
-
-                        <div
-                            class="group flex-1 bg-dark-navy/80 backdrop-blur-sm px-6 py-10 text-center text-white md:rounded-r-2xl fade-in animate-stagger-4 relative
-                transition-all duration-300 ease-in-out cursor-pointer
-                hover:bg-primary hover:text-dark-navy hover:shadow-2xl hover:scale-105 hover:z-20 hover:border-transparent hover:rounded-2xl">
-                            <div
-                                class="flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                                <span
-                                    class="material-symbols-outlined text-5xl opacity-90 group-hover:opacity-100">settings</span>
-                            </div>
-                            <h3 class="text-xl font-heading font-bold mb-3">Top Services</h3>
-                            <p class="text-sm opacity-80 leading-relaxed group-hover:opacity-100">Comprehensive wellness
-                                services for complete transformation.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- About Us with Video and Features -->
-            <section class="w-full bg-dark-navy py-16 sm:py-20"> <!-- Corrected background color here -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex flex-col lg:flex-row gap-8 items-center">
-                        <!-- Left Side: Images/Video -->
-                        <div class="lg:w-2/5 w-full">
-                            <div class="grid grid-cols-1 gap-4">
-                                <!-- Video Thumbnail -->
-                                <div
-                                    class="relative aspect-video bg-black rounded-lg shadow-lg overflow-hidden slide-in-left">
-                                    <img alt="Personal training session video"
-                                        class="absolute inset-0 w-full h-full object-cover"
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5yE3VV0EfCEKNVJI25mgJV3nfxU95aEJJ_rPqbj1zVSYJy_z0mqmfuMOgULcGZB502Mb2lWMZ34Rm9NAApcD2bx8voI3_RbtHk3t-r6hx4E2bwKsCeTorDgWMuIh31XrR6rvIYZysVTJPQ0Sa4yW4fiv-LPPc1iWLrVfQEa2RujzeKf1yfMYtrBdbNrix9-5tImeoUwTANurnScpYHBKDEG3OE_iJggp35QnjX2gTumABzu9rTCq0RXDl6b-tcBRx8zrPFywq14_D" />
-                                    <div class="absolute inset-0 bg-black/30"></div>
-                                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                        <div
-                                            class="flex items-center justify-center size-16 bg-primary text-dark-navy rounded-full cursor-pointer transition-transform hover:scale-110">
-                                            <span class="material-symbols-outlined !text-5xl">play_arrow</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Equipment Image -->
-                                <div
-                                    class="relative aspect-video bg-gray-200 rounded-lg shadow-lg overflow-hidden slide-in-left animate-stagger-1">
-                                    <img alt="Professional fitness equipment"
-                                        class="absolute inset-0 w-full h-full object-cover"
-                                        src="fitnessfolks/Group photo 2.jpg" />
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Center: About Us Card -->
-                        <div class="lg:w-2/5 w-full">
-                            <div
-                                class="bg-dark-navy/80 backdrop-blur-sm text-white p-10 rounded-2xl shadow-xl slide-in-up">
-                                <h2 class="text-4xl font-heading font-bold mb-6 text-white">About Us</h2>
-                                <p class="text-white/90 leading-relaxed mb-6">
-                                    We are dedicated to transforming lives through personalized fitness programs. Our
-                                    expert trainers bring years of experience to help you achieve your wellness goals.
-                                </p>
-                                <p class="text-white/90 leading-relaxed mb-8">
-                                    With state-of-the-art facilities and innovative training methods, we provide a
-                                    holistic approach to health and fitness.
-                                </p>
+                            class="col-span-2 relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5yE3VV0EfCEKNVJI25mgJV3nfxU95aEJJ_rPqbj1zVSYJy_z0mqmfuMOgULcGZB502Mb2lWMZ34Rm9NAApcD2bx8voI3_RbtHk3t-r6hx4E2bwKsCeTorDgWMuIh31XrR6rvIYZysVTJPQ0Sa4yW4fiv-LPPc1iWLrVfQEa2RujzeKf1yfMYtrBdbNrix9-5tImeoUwTANurnScpYHBKDEG3OE_iJggp35QnjX2gTumABzu9rTCq0RXDl6b-tcBRx8zrPFywq14_D"
+                                alt="Video Thumbnail"
+                                class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                            <div class="absolute inset-0 flex items-center justify-center">
                                 <button
-                                    class="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:shadow-lg">
-                                    Learn More
+                                    class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center hover:scale-110 transition-transform">
+                                    <span class="material-symbols-outlined text-4xl">play_arrow</span>
                                 </button>
                             </div>
                         </div>
-                        <!-- Right Side: Why Choose Us Features -->
-                        <div class="lg:w-2/5 w-full">
-                            <div class="bg-background-dark rounded-2xl shadow-xl p-8 slide-in-right">
-                                <h3 class="text-2xl font-heading font-bold text-white mb-8">Why
-                                    Choose Us</h3>
-                                <div class="space-y-6">
-                                    <!-- Feature 1 -->
-                                    <div class="flex gap-4 fade-in animate-stagger-1">
-                                        <div
-                                            class="flex-shrink-0 flex items-center justify-center size-12 bg-primary text-white rounded-lg">
-                                            <span class="material-symbols-outlined text-2xl">thumb_up</span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-lg font-heading font-bold text-white mb-2">
-                                                23 Years Experience</h4>
-                                            <p class="text-white/70 text-sm leading-relaxed">Two
-                                                decades of excellence in fitness training and wellness coaching.</p>
-                                        </div>
-                                    </div>
-                                    <!-- Feature 2 -->
-                                    <div class="flex gap-4 fade-in animate-stagger-2">
-                                        <div
-                                            class="flex-shrink-0 flex items-center justify-center size-12 bg-primary text-white rounded-lg">
-                                            <span class="material-symbols-outlined text-2xl">support_agent</span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-lg font-heading font-bold text-white mb-2">
-                                                24/7 Support</h4>
-                                            <p class="text-white/70 text-sm leading-relaxed">
-                                                Round-the-clock assistance for all your fitness questions and concerns.
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <!-- Feature 3 -->
-                                    <div class="flex gap-4 fade-in animate-stagger-3">
-                                        <div
-                                            class="flex-shrink-0 flex items-center justify-center size-12 bg-primary text-white rounded-lg">
-                                            <span class="material-symbols-outlined text-2xl">workspace_premium</span>
-                                        </div>
-                                        <div>
-                                            <h4 class="text-lg font-heading font-bold text-white mb-2">
-                                                Industry Certified</h4>
-                                            <p class="text-white/70 text-sm leading-relaxed">All our
-                                                trainers hold recognized certifications from top fitness organizations.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-white/10">
+                            <img src="fitnessfolks/Group photo 2.jpg"
+                                class="w-full h-full object-cover hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div
+                            class="bg-dark-navy border border-white/10 rounded-2xl p-6 flex flex-col justify-center items-center text-center">
+                            <h4 class="text-4xl font-bold text-primary mb-1">23+</h4>
+                            <p class="text-sm text-gray-400">Years of Experience</p>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- Meet the Team Section -->
-            <section class="w-full bg-dark-navy py-16 sm:py-20">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2
-                        class="text-white text-4xl font-heading font-bold uppercase leading-tight tracking-wider text-center pb-12 fade-in">
-                        Meet Our Team
-                    </h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-                        <!-- Updated grid layout to 4x3 -->
-                        <!-- Team Member 1 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Disha\ Joshi.jpg" alt="Team Member 1"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Disha Joshi</h3>
-                            <p class="text-primary text-sm mt-1">Founder & Head Trainer</p>
-                            <p class="text-white/70 text-sm mt-3">Specializes in strength training and injury
-                                prevention.</p>
-                        </div>
-                        <!-- Team Member 2 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Anshul Hardiya.jpg" alt="Team Member 2"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Anshul Hardiya</h3>
-                            <p class="text-primary text-sm mt-1">Yoga Specialist</p>
-                            <p class="text-white/70 text-sm mt-3">Focuses on flexibility, mindfulness, and stress
-                                relief.</p>
-                        </div>
-                        <!-- Team Member 3 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Ankush Hardiya.jpg" alt="Team Member 3"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Mike Johnson</h3>
-                            <p class="text-primary text-sm mt-1">Ankush Hardiya</p>
-                            <p class="text-white/70 text-sm mt-3">Creates personalized meal plans for optimal results.
-                            </p>
-                        </div>
-                        <!-- Team Member 4 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Harshita Mehra.jpg" alt="Team Member 4"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Harshita Mehra</h3>
-                            <p class="text-primary text-sm mt-1">Pilates Instructor</p>
-                            <p class="text-white/70 text-sm mt-3">Expert in core strengthening and posture improvement.
-                            </p>
-                        </div>
-                        <!-- Team Member 5 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Lavanya Vaishnav.jpg" alt="Team Member 5"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Lavanya Vaishnav</h3>
-                            <p class="text-primary text-sm mt-1">Cardio Coach</p>
-                            <p class="text-white/70 text-sm mt-3">Designs effective cardio routines for weight loss.</p>
-                        </div>
-                        <!-- Team Member 6 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Anshul Tiwari.jpg" alt="Team Member 6"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Anshul Tiwari</h3>
-                            <p class="text-primary text-sm mt-1">Rehabilitation Specialist</p>
-                            <p class="text-white/70 text-sm mt-3">Helps clients recover from injuries safely.</p>
-                        </div>
-                        <!-- Team Member 7 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Himanshu Bhumbre.jpg" alt="Team Member 7"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Himanshu Bhumbre</h3>
-                            <p class="text-primary text-sm mt-1">Group Fitness Leader</p>
-                            <p class="text-white/70 text-sm mt-3">Motivational trainer for high-energy classes.</p>
-                        </div>
-                        <!-- Team Member 8 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Varsha Makwana.jpg" alt="Team Member 8"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Varsha Makwana</h3>
-                            <p class="text-primary text-sm mt-1">Pre/Postnatal Specialist</p>
-                            <p class="text-white/70 text-sm mt-3">Supports women throughout pregnancy and postpartum.
-                            </p>
-                        </div>
-                        <!-- Team Member 9 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Vidushi Kothari.jpg" alt="Team Member 9"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Vidushi Kothari</h3>
-                            <p class="text-primary text-sm mt-1">Senior Fitness Expert</p>
-                            <p class="text-white/70 text-sm mt-3">Tailored programs for active aging.</p>
-                        </div>
-                        <!-- Team Member 10 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Krishna Mourya.jpg" alt="Team Member 10"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Krishna Mourya</h3>
-                            <p class="text-primary text-sm mt-1">Flexibility Trainer</p>
-                            <p class="text-white/70 text-sm mt-3">Improves range of motion and mobility.</p>
-                        </div>
-                        <!-- Team Member 11 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Samarth Hardiya.jpg" alt="Team Member 11"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Samarth Hardiya</h3>
-                            <p class="text-primary text-sm mt-1">Sports Performance Coach</p>
-                            <p class="text-white/70 text-sm mt-3">Trains athletes for peak performance.</p>
-                        </div>
-                        <!-- Team Member 12 -->
-                        <div
-                            class="bg-dark-navy/80 backdrop-blur-sm rounded-xl p-6 text-center shadow-lg transition-transform hover:scale-105">
-                            <div
-                                class="mx-auto mb-4 rounded-full bg-gray-200 border-2 border-primary w-40 h-40 overflow-hidden">
-                                <!-- Square image -->
-                                <img src="./fitnessfolks/Anshul Hardiya.jpg" alt="Team Member 12"
-                                    class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-heading font-bold text-white">Sophia Martinez</h3>
-                            <p class="text-primary text-sm mt-1">Mindfulness Coach</p>
-                            <p class="text-white/70 text-sm mt-3">Integrates meditation and breathing techniques.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                    <div
+                        class="bg-dark-navy/80 backdrop-blur-sm p-8 md:p-12 rounded-3xl border border-white/5 shadow-xl">
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6 text-white uppercase tracking-wide">
+                            About Us</h2>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            We are dedicated to transforming lives through personalized fitness programs. Our expert
+                            trainers bring years of experience to help you achieve your wellness goals.
+                        </p>
+                        <p class="text-gray-300 mb-8 leading-relaxed">
+                            With state-of-the-art facilities and innovative training methods, we provide a holistic
+                            approach to health and fitness that goes beyond just lifting weights.
+                        </p>
 
-            <!-- Testimonials Section (Responsive carousel with playable center video) -->
-            <section class="w-full bg-dark-navy py-16 sm:py-20 overflow-hidden">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h2
-                        class="text-white text-4xl font-heading font-bold uppercase leading-tight tracking-wider text-center pb-12 fade-in">
-                        Hear From Our Community</h2>
-                    <div class="relative">
-                        <!-- Nav buttons (hidden on small screens) -->
-                        <button id="testimonialPrev"
-                            class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-30 items-center justify-center size-12 bg-white/10 text-white rounded-full backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-110">
-                            <span class="material-symbols-outlined">chevron_left</span>
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span class="text-white">24/7 Member Support</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary">check_circle</span>
+                                <span class="text-white">Industry Certified Trainers</span>
+                            </div>
+                        </div>
+
+                        <button
+                            class="bg-transparent border border-primary text-primary hover:bg-primary hover:text-white font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+                            Learn More
                         </button>
-                        <button id="testimonialNext"
-                            class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-30 items-center justify-center size-12 bg-white/10 text-white rounded-full backdrop-blur-sm transition-all hover:bg-white/20 hover:scale-110">
-                            <span class="material-symbols-outlined">chevron_right</span>
-                        </button>
-                        <!-- Carousel viewport -->
-                        <div id="testimonialViewport" class="overflow-hidden">
-                            <!-- Wrap the track in a container to help calculate width -->
-                            <div class="flex justify-center">
-                                <div id="testimonialTrack"
-                                    class="flex md:flex-row flex-col items-end md:items-end gap-8 md:gap-8 transition-transform duration-500 will-change-transform">
-                                    <!-- Card Set 1 -->
-                                    <!-- Left Card -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-left">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/gym v3.mp4" type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Dr. Sumita Agarwal
-                                        </h4>
-                                        <p class="text-primary text-sm mt-1">Graphic Designer</p>
-                                    </div>
-                                    <!-- Center Card (video) -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-64 md:w-72 lg:w-80 transform md:-mt-6 z-20 md:scale-105 flex flex-col items-center fade-in">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/Dr Arun.mp4" type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-xl font-heading font-bold mt-4 text-center">Dr. Arun
-                                            Agarwal</h4>
-                                        <p class="text-primary text-sm mt-1 text-center">Cancer Specialist</p>
-                                    </div>
-                                    <!-- Right Card -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-right">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/Mr Tapan.mov" type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Mr Tapan Agarwal</h4>
-                                        <p class="text-primary text-sm mt-1">Emerald Developers, CEO</p>
-                                    </div>
-
-                                    <!-- Card Set 2 -->
-                                    <!-- Left Card -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-left">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/1107 (1).mov" type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Try These</h4>
-                                        <p class="text-primary text-sm mt-1">Tips</p>
-                                    </div>
-                                    <!-- Center Card (video) -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-64 md:w-72 lg:w-80 transform md:-mt-6 z-20 md:scale-105 flex flex-col items-center fade-in">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/advika final.mp4" type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-xl font-heading font-bold mt-4 text-center">Training
-                                        </h4>
-                                        <p class="text-primary text-sm mt-1 text-center">Motivation</p>
-                                    </div>
-                                    <!-- Right Card -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-right">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/ff 4.mp4" type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Try These</h4>
-                                        <p class="text-primary text-sm mt-1">Streches</p>
-                                    </div>
-
-                                    <!-- Card Set 3 -->
-                                    <!-- Left Card -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-left">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/ff yoga.mp4" type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Scorpion HandStand
-                                        </h4>
-                                        <p class="text-primary text-sm mt-1">Yoga</p>
-                                    </div>
-                                    <!-- Center Card (video) -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-64 md:w-72 lg:w-80 transform md:-mt-6 z-20 md:scale-105 flex flex-col items-center fade-in">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/migraine v3.mp4" <!-- Replace with actual
-                                                    video source if different -->
-                                                type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-xl font-heading font-bold mt-4 text-center">Migrane
-                                            Relief
-                                        </h4>
-                                        <p class="text-primary text-sm mt-1 text-center ">Migrane</p>
-                                    </div>
-                                    <!-- Right Card -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-right">
-                                        <video controls playsinline loop muted
-                                            class="w-full h-full object-cover bg-black">
-                                            <source src="Assets/videos/Final FF 1.mov" <!-- Replace with actual video
-                                                source if different -->
-                                            type="video/mp4">
-                                            Your browser does not support the video tag. <a
-                                                href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                class="text-primary underline">Open video</a>
-                                        </video>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Try These Poses</h4>
-                                        <p class="text-primary text-sm mt-1">Balance</p>
-                                    </div>
-
-                                    <!-- Card Set 4 -->
-                                    <!-- Left Card -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-left">
-                                        <!-- <video controls playsinline loop muted
-                                            class="w-full h-full object-cover bg-black">
-                                            <source src="Assets/videos/sun v2.mp4" 
-                                            type="video/mp4">
-                                            Your browser does not support the video tag. <a
-                                                href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                class="text-primary underline">Open video</a>
-                                        </video>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Surya Namaskar</h4>
-                                        <p class="text-primary text-sm mt-1">Yoga</p> -->
-                                    </div>
-                                    <!-- Center Card (video) -->
-                                    <div
-                                        class="flex-shrink-0 w-full sm:w-64 md:w-72 lg:w-80 transform md:-mt-6 z-20 md:scale-105 flex flex-col items-center fade-in">
-                                        <div
-                                            class="w-full aspect-[9/16] rounded-lg overflow-hidden shadow-2xl bg-black">
-                                            <!-- <video controls playsinline loop muted
-                                                class="w-full h-full object-cover bg-black">
-                                                <source src="Assets/videos/migraine v3.mp4" 
-                                                type="video/mp4">
-                                                Your browser does not support the video tag. <a
-                                                    href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                    class="text-primary underline">Open video</a>
-                                            </video>
-                                        </div>
-                                        <h4 class="text-white text-xl font-heading font-bold mt-4 text-center">Jessica
-                                            Lee</h4>
-                                        <p class="text-primary text-sm mt-1 text-center">Artist</p> -->
-                                        </div>
-                                        <!-- Right Card -->
-                                        <div
-                                            class="flex-shrink-0 w-full sm:w-56 md:w-64 lg:w-72 flex flex-col items-center slide-in-right">
-                                            <!-- <video controls playsinline loop muted
-                                            class="w-full h-full object-cover bg-black">
-                                            <source src="Assets/videos/ff 4.mp4" 
-                                            type="video/mp4">
-                                            Your browser does not support the video tag. <a
-                                                href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
-                                                class="text-primary underline">Open video</a>
-                                        </video>
-                                        <h4 class="text-white text-lg font-heading font-bold mt-4">Christopher Garcia
-                                        </h4>
-                                        <p class="text-primary text-sm mt-1">Chef</p> -->
-                                        </div>
-
-                                        <!-- Add more sets as needed -->
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-            </section>
-        </main>
 
-        <!-- Footer Section -->
-        <footer class="w-full bg-dark-navy text-white pt-16 pb-8">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div class="md:col-span-2">
-                        <!-- Footer Logo and Brand Info -->
-                        <div class="flex items-center gap-4">
-                            <div class="w-10 h-10">
-                                <img src="Icons/Logo.png" alt="The Fitness Folks Logo"
-                                    class="w-full h-full object-contain">
-                            </div>
-                            <h2 class="text-white text-xl font-heading font-bold tracking-wide uppercase">The Fitness
-                                Folks</h2>
-                        </div>
-                        <p class="mt-4 text-white/70 max-w-md">Your journey to a healthier, stronger you starts here.
-                            Personalized fitness for every body.</p>
-                    </div>
-                    <!-- Quick Links Section -->
-                    <div>
-                        <h3 class="text-lg font-heading font-semibold text-primary uppercase tracking-wider">Quick Links
-                        </h3>
-                        <ul class="mt-4 space-y-2">
-                            <li><a class="text-white/70 hover:text-white transition-colors" href="index.html">Home</a>
-                            </li>
-                            <li><a class="text-white/70 hover:text-white transition-colors"
-                                    href="services.html">Services</a></li>
-                            <li><a class="text-white/70 hover:text-white transition-colors" href="about.html">About
-                                    Us</a></li>
-                            <li><a class="text-white/70 hover:text-white transition-colors"
-                                    href="contact.html">Contact</a></li>
-                            <li><a class="text-white/70 hover:text-white transition-colors"
-                                    href="gallery.html">Gallery</a></li>
-                        </ul>
-                    </div>
-                    <!-- Social Media Links Section -->
-                    <div>
-                        <h3 class="text-lg font-heading font-semibold text-primary uppercase tracking-wider">Follow Us
-                        </h3>
-                        <div class="mt-4 flex space-x-4">
-                            <a class="text-white/70 hover:text-white transition-colors" href="#">
-                                <!-- Instagram Icon -->
-                                <svg class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.058 1.644-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.058-1.689-.072-4.948-.072zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.44-1.441-1.44z">
-                                    </path>
-                                </svg>
-                            </a>
-                            <a class="text-white/70 hover:text-white transition-colors" href="#">
-                                <!-- Twitter/X Icon -->
-                                <svg class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616v.064c0 2.298 1.634 4.218 3.803 4.653-.666.18-1.371.243-2.094.213.606 1.884 2.372 3.256 4.478 3.3-1.625 1.275-3.673 2.03-5.894 2.03-.382 0-.76-.022-1.134-.067 2.099 1.353 4.604 2.145 7.29 2.145 8.75 0 13.529-7.25 13.529-13.529 0-.206-.005-.412-.013-.616.928-.67 1.734-1.507 2.381-2.471z">
-                                    </path>
-                                </svg>
-                            </a>
-                            <a class="text-white/70 hover:text-white transition-colors" href="#">
-                                <!-- Facebook Icon -->
-                                <svg class="h-6 w-6" fill="currentColor" viewbox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.294h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.323-1.325z">
-                                    </path>
-                                </svg>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer Bottom (Copyright) -->
-                <div class="mt-12 border-t border-white/20 pt-8 text-center text-white/50">
-                    <p>© 2024 The Fitness Folks. All Rights Reserved.</p>
                 </div>
             </div>
-        </footer>
-    </div>
+        </section>
 
-    <!-- JavaScript for Testimonial Carousel and Navbar Scroll Effect -->
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold uppercase text-white mb-4">Meet Our Team</h2>
+                    <div class="h-1 w-20 bg-primary mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Disha Joshi.jpg" alt="Disha Joshi"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Disha Joshi</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Founder & Head Trainer
+                        </p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Specializes in strength training and injury
+                            prevention.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Anshul Hardiya.jpg" alt="Anshul"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Anshul Hardiya</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Yoga Specialist</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Focuses on flexibility, mindfulness, and stress
+                            relief.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Ankush Hardiya.jpg" alt="Ankush"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Ankush Hardiya</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Nutritionist</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Creates personalized meal plans for optimal
+                            results.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Harshita Mehra.jpg" alt="Harshita"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Harshita Mehra</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Pilates Instructor</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Expert in core strengthening and posture
+                            improvement.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Lavanya Vaishnav.jpg" alt="Lavanya"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Lavanya Vaishnav</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Cardio Coach</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Designs effective cardio routines for weight loss.
+                        </p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Anshul Tiwari.jpg" alt="Anshul"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Anshul Tiwari</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Rehab Specialist</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Helps clients recover from injuries safely.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Himanshu Bhumbre.jpg" alt="Himanshu"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Himanshu Bhumbre</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Group Leader</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Motivational trainer for high-energy classes.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Varsha Makwana.jpg" alt="Varsha"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Varsha Makwana</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Natal Specialist</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Supports women throughout pregnancy and
+                            postpartum.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Krishna Mourya.jpg" alt="Krishna"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Krishna Mourya</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Functional Training Specialist</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Expert in functional fitness and athletic performance.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Samarth Hardiya.jpg" alt="Samarth"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Samarth Hardiya</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Strength & Conditioning Coach</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Specializes in building muscle and athletic conditioning.</p>
+                    </div>
+
+                    <div
+                        class="group bg-dark-navy/60 backdrop-blur-sm border border-white/5 rounded-xl p-6 text-center hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+                        <div
+                            class="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-2 border-primary/20 group-hover:border-primary transition-colors">
+                            <img src="../fitnessfolks/Vidushi Kothari.jpg" alt="Vidushi"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-lg font-bold text-white">Vidushi Kothari</h3>
+                        <p class="text-primary text-xs uppercase font-bold tracking-wider mb-2">Dance Fitness Instructor</p>
+                        <p class="text-xs text-gray-400 line-clamp-2">Makes fitness fun with energetic dance-based workouts.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-dark-navy/80">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="text-3xl md:text-5xl font-heading font-bold text-white uppercase">Community Stories
+                        </h2>
+                        <p class="text-gray-400 mt-2">See how we are changing lives.</p>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="scrollTestimonials(-1)"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors text-white">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <button onclick="scrollTestimonials(1)"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-colors text-white">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="stories-scroll"
+                    class="flex gap-6 overflow-x-auto pb-8 hide-scrollbar snap-x snap-mandatory scroll-smooth">
+
+                    <div
+                        class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
+                        <div class="aspect-[9/16] relative">
+                            <video poster="" class="w-full h-full object-cover" loop muted playsinline>
+                                <source src="Assets/videos/gym v3.mp4" type="video/mp4">
+                            </video>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                <h3 class="text-lg font-bold text-white">Dr. Sumita Agarwal</h3>
+                                <p class="text-primary text-sm">Graphic Designer</p>
+                            </div>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-5xl text-white opacity-80 group-hover:scale-110 transition-transform">play_circle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
+                        <div class="aspect-[9/16] relative">
+                            <video poster="" class="w-full h-full object-cover" loop muted playsinline>
+                                <source src="Assets/videos/Dr Arun.mp4" type="video/mp4">
+                            </video>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                <h3 class="text-lg font-bold text-white">Dr. Arun Agarwal</h3>
+                                <p class="text-primary text-sm">Cancer Specialist</p>
+                            </div>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-5xl text-white opacity-80 group-hover:scale-110 transition-transform">play_circle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
+                        <div class="aspect-[9/16] relative">
+                            <video poster="" class="w-full h-full object-cover" loop muted playsinline>
+                                <source src="Assets/videos/Mr Tapan.mov" type="video/mp4">
+                            </video>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                <h3 class="text-lg font-bold text-white">Mr. Tapan Agarwal</h3>
+                                <p class="text-primary text-sm">Emerald Developers, CEO</p>
+                            </div>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-5xl text-white opacity-80 group-hover:scale-110 transition-transform">play_circle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
+                        <div class="aspect-[9/16] relative">
+                            <video poster="" class="w-full h-full object-cover" loop muted playsinline>
+                                <source src="Assets/videos/advika final.mp4" type="video/mp4">
+                            </video>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                <h3 class="text-lg font-bold text-white">Advika</h3>
+                                <p class="text-primary text-sm">Student</p>
+                            </div>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-5xl text-white opacity-80 group-hover:scale-110 transition-transform">play_circle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="snap-center shrink-0 w-[280px] sm:w-[320px] bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 group relative">
+                        <div class="aspect-[9/16] relative">
+                            <video poster="" class="w-full h-full object-cover" loop muted playsinline>
+                                <source src="Assets/videos/ff yoga.mp4" type="video/mp4">
+                            </video>
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-6">
+                                <h3 class="text-lg font-bold text-white">Scorpion Pose</h3>
+                                <p class="text-primary text-sm">Advanced Yoga</p>
+                            </div>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-transparent transition-colors">
+                                <span
+                                    class="material-symbols-outlined text-5xl text-white opacity-80 group-hover:scale-110 transition-transform">play_circle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black/90 pt-16 pb-8 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8">
+                            <img src="Icons/Logo.png" alt="Logo" class="w-full h-full object-contain">
+                        </div>
+                        <h2 class="text-xl font-heading font-bold uppercase">The Fitness Folks</h2>
+                    </div>
+                    <p class="text-gray-400 max-w-sm text-sm leading-relaxed">
+                        Your journey to a healthier, stronger you starts here. Personalized fitness for every body,
+                        mind, and spirit.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-primary font-bold uppercase tracking-wider mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-primary font-bold uppercase tracking-wider mb-4">Connect</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                                class="material-symbols-outlined">thumb_up</span></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                                class="material-symbols-outlined">photo_camera</span></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><span
+                                class="material-symbols-outlined">mail</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-xs">
+                &copy; 2024 The Fitness Folks. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
     <script>
-        // Navbar scroll effect
-        window.addEventListener('scroll', function () {
+        // --- Mobile Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // --- Navbar Scroll Effect ---
+        window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('navbar-scrolled');
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-lg', 'bg-dark-navy/95');
             } else {
-                navbar.classList.remove('navbar-scrolled');
+                navbar.classList.remove('shadow-lg', 'bg-dark-navy/90');
             }
         });
 
-        // Simple responsive testimonial carousel (controls hidden on small screens)
-        // Enhanced Testimonial Carousel - Show 3 cards at a time with roll transitions
-        (function () {
-            const prevBtn = document.getElementById('testimonialPrev');
-            const nextBtn = document.getElementById('testimonialNext');
-            const viewport = document.getElementById('testimonialViewport');
-            const track = document.getElementById('testimonialTrack');
-
-            // Group cards into sets of 3
-            const allCards = Array.from(track.children);
-            const cardSets = [];
-
-            // Create sets of 3 cards
-            for (let i = 0; i < allCards.length; i += 3) {
-                cardSets.push(allCards.slice(i, i + 3));
-            }
-
-            let currentSetIndex = 0;
-            let isAnimating = false;
-
-            // Pause all videos
-            function pauseAllVideos() {
-                const allVideos = track.querySelectorAll('.testimonial-video');
-                allVideos.forEach(video => {
-                    video.pause();
-                    video.currentTime = 0;
-                });
-            }
-
-            function updateCarousel(direction = 'none') {
-                if (isAnimating) return;
-
-                // Pause all videos before transition
-                pauseAllVideos();
-
-                // Hide all cards first
-                allCards.forEach(card => {
-                    card.style.display = 'none';
-                    card.classList.remove('roll-in-left', 'roll-in-right');
-                });
-
-                // Show current set of 3 cards
-                const currentSet = cardSets[currentSetIndex];
-
-                if (direction !== 'none') {
-                    isAnimating = true;
-
-                    currentSet.forEach((card, index) => {
-                        card.style.display = 'flex';
-                        card.style.opacity = '0';
-
-                        setTimeout(() => {
-                            if (direction === 'next') {
-                                card.classList.add('roll-in-left');
-                            } else {
-                                card.classList.add('roll-in-right');
-                            }
-                            card.style.opacity = '1';
-                        }, index * 150);
-                    });
-
-                    setTimeout(() => {
-                        isAnimating = false;
-                    }, 1200);
-                } else {
-                    // Initial load - no animation
-                    currentSet.forEach(card => {
-                        card.style.display = 'flex';
-                        card.style.opacity = '1';
-                    });
-                }
-
-                // Update button states
-                updateButtonStates();
-
-                // Smooth scroll viewport into view
-                viewport.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-
-            function updateButtonStates() {
-                if (prevBtn) {
-                    prevBtn.style.opacity = currentSetIndex === 0 ? '0.5' : '1';
-                    prevBtn.style.cursor = currentSetIndex === 0 ? 'not-allowed' : 'pointer';
-                }
-
-                if (nextBtn) {
-                    nextBtn.style.opacity = currentSetIndex === cardSets.length - 1 ? '0.5' : '1';
-                    nextBtn.style.cursor = currentSetIndex === cardSets.length - 1 ? 'not-allowed' : 'pointer';
-                }
-            }
-
-            // Previous button
-            if (prevBtn) {
-                prevBtn.addEventListener('click', () => {
-                    if (currentSetIndex > 0 && !isAnimating) {
-                        currentSetIndex--;
-                        updateCarousel('prev');
-                    }
-                });
-            }
-
-            // Next button
-            if (nextBtn) {
-                nextBtn.addEventListener('click', () => {
-                    if (currentSetIndex < cardSets.length - 1 && !isAnimating) {
-                        currentSetIndex++;
-                        updateCarousel('next');
-                    }
-                });
-            }
-
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft' && currentSetIndex > 0 && !isAnimating) {
-                    currentSetIndex--;
-                    updateCarousel('prev');
-                } else if (e.key === 'ArrowRight' && currentSetIndex < cardSets.length - 1 && !isAnimating) {
-                    currentSetIndex++;
-                    updateCarousel('next');
-                }
+        // --- Testimonial Scroll Logic ---
+        function scrollTestimonials(direction) {
+            const container = document.getElementById('stories-scroll');
+            const scrollAmount = 320; // Approx card width
+            container.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
             });
+        }
 
-            // Initialize on mobile - show all cards stacked
-            function handleResize() {
-                if (window.innerWidth < 768) {
-                    // Mobile: show all cards
-                    allCards.forEach(card => {
-                        card.style.display = 'flex';
-                        card.style.opacity = '1';
-                        card.classList.remove('roll-in-left', 'roll-in-right');
-                    });
-                    if (prevBtn) prevBtn.style.display = 'none';
-                    if (nextBtn) nextBtn.style.display = 'none';
-                } else {
-                    // Desktop: show carousel
-                    if (prevBtn) prevBtn.style.display = 'flex';
-                    if (nextBtn) nextBtn.style.display = 'flex';
-                    updateCarousel('none');
-                }
-            }
-
-            window.addEventListener('resize', handleResize);
-            window.addEventListener('load', handleResize);
-
-            // Initial setup
-            setTimeout(() => {
-                handleResize();
-            }, 100);
-        })();
-
-
-        // Trigger animations on page load
-        window.addEventListener('load', function () {
-            // Add a small delay to ensure elements are rendered
-            setTimeout(function () {
-                // Get all elements with animation classes
-                const fadeElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up');
-
-                // Trigger animations by setting opacity to 1 (they'll animate in based on their CSS)
-                fadeElements.forEach(element => {
-                    element.style.opacity = '1';
-                });
-            }, 100);
+        // --- Video Hover Play (Optional enhancement) ---
+        const videos = document.querySelectorAll('video');
+        videos.forEach(video => {
+            video.parentElement.addEventListener('mouseenter', () => {
+                video.play().catch(() => { }); // Autoplay might be blocked by browser
+            });
+            video.parentElement.addEventListener('mouseleave', () => {
+                video.pause();
+            });
         });
-
-        // Team Carousel Controller
-        (function () {
-            const prevBtn = document.getElementById('teamPrev');
-            const nextBtn = document.getElementById('teamNext');
-            const track = document.getElementById('teamTrack');
-            const indicators = document.querySelectorAll('.teamIndicator');
-            const cardWidth = track.querySelector('div').offsetWidth;
-            const gap = 32; // 8 (gap-8 in Tailwind)
-            let currentIndex = 0;
-            const itemsPerView = 4;
-            const totalItems = 12;
-            const maxIndex = Math.ceil(totalItems / itemsPerView) - 1;
-
-            function updateCarousel() {
-                const offset = -currentIndex * (cardWidth + gap);
-                track.style.transform = `translateX(${offset}px)`;
-
-                // Update indicators
-                indicators.forEach((indicator, idx) => {
-                    if (idx === currentIndex) {
-                        indicator.classList.add('active');
-                        indicator.classList.remove('bg-gray-300', 'dark:bg-gray-600');
-                        indicator.classList.add('bg-primary');
-                    } else {
-                        indicator.classList.remove('active');
-                        indicator.classList.add('bg-gray-300', 'dark:bg-gray-600');
-                        indicator.classList.remove('bg-primary');
-                    }
-                });
-            }
-
-            if (prevBtn) prevBtn.addEventListener('click', () => {
-                currentIndex = Math.max(0, currentIndex - 1);
-                updateCarousel();
-            });
-
-            if (nextBtn) nextBtn.addEventListener('click', () => {
-                currentIndex = Math.min(maxIndex, currentIndex + 1);
-                updateCarousel();
-            });
-
-            // Handle indicator clicks
-            indicators.forEach((indicator, idx) => {
-                indicator.addEventListener('click', () => {
-                    currentIndex = idx;
-                    updateCarousel();
-                });
-            });
-
-            // Recalculate on window resize
-            window.addEventListener('resize', () => {
-                const newCardWidth = track.querySelector('div').offsetWidth;
-                const offset = -currentIndex * (newCardWidth + gap);
-                track.style.transform = `translateX(${offset}px)`;
-            });
-
-            // Initialize carousel on load
-            setTimeout(updateCarousel, 300);
-        })();
     </script>
 </body>
 
